@@ -1,4 +1,6 @@
 {% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,39 +98,14 @@
       </div>
       <center>
         <!--Fomulario de ingreso de datos-->
-        <form id="formulario">
-          <div class="input-group">
-            <span class="input-group-text">Ingrese su Nombre y Apellido</span>
-            <input type="text" id="nombre" placeholder="Nombre" aria-label="First name" class="form-control">
-            <input type="text" id="apellido" placeholder="Apellido" aria-label="Last name" class="form-control">
-          </div>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Ingrese su Email</span>
-            <input type="text" id="email" class="form-control" placeholder="Email" aria-label="email" aria-describedby="addon-wrapping">
-          </div>
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">País</label>
-            <select class="form-select" id="inputGroupSelect01">
-              <option selected>Seleccione su país</option>
-              <option value="1">Chile</option>
-              <option value="2">Argentina</option>
-              <option value="3">Venezuela</option>
-            </select>
-          </div>
-          <div class="input-group">
-            <span class="input-group-text">Escriba sus dudas aquí</span>
-            <textarea class="form-control" aria-label="With textarea"></textarea>
-          </div>       
-        <button style="margin-bottom: 30px; margin-top: 30px;" type="submit" class="btn">Enviar</button>
-      </form>  
+        <form style="width: 30%; color: white;" id="formulario" action="" method="post">{% csrf_token %} 
+          {{ form|crispy }}
+        <input style="margin-bottom: 30px; margin-top: 30px; background-color: black;" class="btn btn-primary" type="submit" value="Enviar">
+        </form>
       <!--Fomulario de ingreso de datos-->
-      <form id="formulario">
-        <span class="input-group-text" style="margin: 5px 5px 5px 5px; width: 50%; text-align: center;">Suscribase para enterarse primero de los nuevos productos</span>
-        <div class="input-group">
-          <span class="input-group-text">Ingrese su correo y nombre</span>
-          <input type="text" id="email-2" placeholder="Email" aria-label="Email" class="form-control">
-          <input type="text" id="correo-2" placeholder="Nombre" aria-label="name" class="form-control">
-        </div>
+      <div>
+      <a style="background-color: black;" class="btn btn-primary" href="{%url 'cuestionario2'%}" role="button">Quieres enterarte de lo nuevo?</a>
+      </div>
       </form>
       </center>
       <!-- dirección y sobre nosotros-->
@@ -178,3 +155,4 @@
   <script src="javasscript/formulario.js"></script>
 </body>
 </html>
+{% endblock content %}
