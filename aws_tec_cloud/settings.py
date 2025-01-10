@@ -87,7 +87,7 @@ DATABASES = {
         'NAME': 'aws_tec_cloud_2023',
         'HOST': 'ismael-moya-2023.crsfqw5su6yg.us-east-1.rds.amazonaws.com',
         'USER': 'admin',
-        'PASSWORD': 'inacapLab2023',
+        'PASSWORD': '', #usar variables de entorno 
         'PORT': 3306, 
     }
 }
